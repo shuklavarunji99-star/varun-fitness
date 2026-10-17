@@ -5,7 +5,7 @@ My gym website
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewportu" content="width=device-width, initial-scale=1.0">
   <title>Varun Fitness | Transform Yourself</title>
   <meta name="description" content="Varun Fitness - Workout, fitness and nutrition. Start your fitness journey today.">
 
