@@ -1,564 +1,231 @@
 
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Varun Fitness | Transform Yourself</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090909">
+<meta name="description" content="Varun Fitness - Workout plans, memberships, diet guidance and fitness tips.">
+<title>Varun Fitness | Build Your Best Self</title>
 <style>
-*{box-sizing:border-box;scroll-behavior:smooth}
-body{margin:0;font-family:Arial,sans-serif;background:#101010;color:white}
-header{background:#181818;padding:18px 14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-.logo{font-size:22px;font-weight:bold;color:#ff3939}
-nav a{color:white;text-decoration:none;margin:5px;font-size:13px}
-.hero{text-align:center;padding:65px 18px;background:linear-gradient(145deg,#310909,#111 65%)}
-.hero h1{font-size:39px;margin:10px 0}
-.red{color:#ff3939}
-.hero p{color:#ddd;line-height:1.7}
-.btn{display:inline-block;text-decoration:none;padding:13px 18px;border-radius:8px;font-weight:bold;margin:6px;border:none;font-size:15px}
-.whatsapp{background:#25d366;color:#071b0d}
-.phonepe{background:#6739a6;color:white}
-.outline{border:1px solid #ff3939;color:white}
-section{padding:35px 16px;text-align:center}
-section h2{font-size:27px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px;max-width:850px;margin:20px auto}
-.card{background:#1d1d1d;border:1px solid #333;border-radius:12px;padding:20px 12px}
-.card .emoji{font-size:35px}
-.card p{color:#ccc;line-height:1.6;font-size:14px}
-.card h3{color:#ff4949}
-.info{max-width:650px;margin:auto;color:#ddd;line-height:1.9}
-.contact{background:#1a1a1a}
-footer{padding:22px;text-align:center;background:#080808;color:#aaa;font-size:13px}
+:root{--red:#ff2929;--bg:#090909;--card:#161616;--muted:#c0c0c0}
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:#fff;line-height:1.65}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:10;background:#101010;border-bottom:2px solid var(--red);padding:15px 5%;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.logo{font-size:23px;font-weight:900;letter-spacing:1px}
+.logo span,.red{color:var(--red)}
+nav{display:flex;flex-wrap:wrap;gap:14px}
+nav a{font-size:13px;font-weight:bold}
+nav a:hover{color:var(--red)}
+.hero{min-height:560px;display:flex;align-items:center;padding:65px 8%;background:linear-gradient(90deg,#000e,#0008),url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1800&q=85') center/cover}
+.hero-content{max-width:680px}
+.eyebrow{color:var(--red);letter-spacing:3px;font-size:13px;font-weight:bold}
+h1{font-size:clamp(42px,8vw,76px);line-height:1.08;margin:18px 0}
+h2{font-size:clamp(27px,5vw,38px);line-height:1.2}
+h3{font-size:21px;margin-bottom:9px}
+p{color:var(--muted)}
+.hero p{max-width:550px;font-size:17px}
+.btn{display:inline-block;background:var(--red);border:1px solid var(--red);border-radius:5px;padding:12px 18px;font-weight:bold;margin:12px 8px 0 0;color:white}
+.btn:hover{background:#c90000}
+.btn.outline{background:transparent}
+section{padding:68px 7%;scroll-margin-top:85px}
+.section-head{text-align:center;margin-bottom:34px}
+.section-head p{margin-top:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:22px}
+.card{background:var(--card);border:1px solid #292929;border-radius:10px;overflow:hidden;transition:.2s}
+.card:hover{border-color:var(--red);transform:translateY(-3px)}
+.card img{width:100%;height:190px;object-fit:cover;display:block}
+.card-body{padding:21px}
+.card-body p{font-size:14px}
+.card-body .btn{font-size:13px;padding:10px 13px}
+.membership{padding:28px 20px;text-align:center;border-top:3px solid var(--red)}
+.price{font-size:29px;font-weight:900;color:var(--red);margin:12px 0}
+.note{font-size:12px;color:#999;margin-top:12px}
+.dark-section{background:#111}
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px;margin-top:28px}
+.feature{background:#1a1a1a;padding:18px;border-left:3px solid var(--red);border-radius:5px}
+.feature p{font-size:14px;margin-top:5px}
+.contact{text-align:center}
+footer{text-align:center;background:#050505;border-top:1px solid #333;padding:28px 6%}
+footer p{font-size:13px;margin-top:5px}
+@media(max-width:600px){
+ header{justify-content:center;text-align:center}
+ nav{justify-content:center;gap:10px}
+ nav a{font-size:12px}
+ .hero{min-height:490px;padding:45px 6%}
+ section{padding:50px 5%}
+}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">VARUN FITNESS</div>
-  <nav>
+  <a class="logo" href="#home">VARUN <span>FITNESS</span></a>
+  <nav aria-label="Main navigation">
     <a href="#home">Home</a>
-    <a href="#workout">Workout</a>
+    <a href="#workouts">Workouts</a>
+    <a href="#membership">Plans</a>
     <a href="#diet">Diet</a>
+    <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<div class="hero" id="home">
-  <p class="red"><b>YOUR FITNESS JOURNEY STARTS HERE</b></p>
-  <h1>BUILD YOUR<br><span class="red">BEST SELF</span></h1>
-  <p>Build strength. Improve fitness.<br>Become the best version of yourself!</p>
-  <a class="btn whatsapp" href="https://wa.me/919532356538?text=Hello%20Varun%20bhai%2C%20mujhe%20fitness%20ke%20baare%20mein%20jaankari%20chahiye" target="_blank">Join on WhatsApp</a>
-  <a class="btn outline" href="#workout">Explore Fitness ↓</a>
-</div>
-
-<section id="workout">
-  <h2>Our <span class="red">Workouts</span></h2>
-  <p>Choose your fitness goal</p>
-  <div class="cards">
-    <div class="card">
-      <div class="emoji">🏋️</div>
-      <h3>Muscle Building</h3>
-      <p>Strength training and muscle-building basics.</p>
-    </div>
-    <div class="card">
-      <div class="emoji">🔥</div>
-      <h3>Fat Loss</h3>
-      <p>Cardio, strength training and healthy habits.</p>
-    </div>
-    <div class="card">
-      <div class="emoji">💪</div>
-      <h3>Strength</h3>
-      <p>Improve strength and workout consistency.</p>
-    </div>
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="eyebrow">YOUR FITNESS JOURNEY STARTS HERE</div>
+    <h1>BUILD YOUR<br><span class="red">BEST SELF.</span></h1>
+    <p>Train with purpose. Stay consistent. Become stronger every day. Start building better fitness habits with Varun Fitness.</p>
+    <a class="btn" href="#membership">EXPLORE PLANS</a>
+    <a class="btn outline" href="https://wa.me/919532356538?text=Hello%20Varun%20Fitness%2C%20I%20want%20to%20know%20more." target="_blank" rel="noopener">WHATSAPP US</a>
   </div>
+</section>
+
+<section id="workouts">
+  <div class="section-head">
+    <h2>OUR <span class="red">WORKOUTS</span></h2>
+    <p>Choose a goal and start working towards it.</p>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80" alt="Strength training at a gym" loading="lazy">
+      <div class="card-body">
+        <h3>Strength Training</h3>
+        <p>Build strength through proper technique, gradual progression and regular training.</p>
+        <a class="btn" href="#contact">ASK ABOUT TRAINING</a>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" alt="Gym workout equipment" loading="lazy">
+      <div class="card-body">
+        <h3>Muscle Building</h3>
+        <p>Work towards muscle growth with resistance exercise, sufficient food and recovery.</p>
+        <a class="btn" href="#diet">VIEW DIET TIPS</a>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80" alt="Fitness workout session" loading="lazy">
+      <div class="card-body">
+        <h3>Fitness & Conditioning</h3>
+        <p>Improve stamina, mobility and general fitness at a manageable pace.</p>
+        <a class="btn" href="#contact">GET INFORMATION</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="dark-section" id="membership">
+  <div class="section-head">
+    <h2>MEMBERSHIP <span class="red">PLANS</span></h2>
+    <p>Choose your starting point. Contact us to discuss the right option.</p>
+  </div>
+  <div class="grid">
+    <article class="card membership">
+      <h3>BASIC</h3>
+      <div class="price">Starter</div>
+      <p>For beginners starting a regular fitness routine.</p>
+      <p>• Getting-started guidance<br>• Basic workout information<br>• Fitness habit tips</p>
+      <a class="btn" href="https://wa.me/919532356538?text=Hello%2C%20please%20tell%20me%20about%20the%20Basic%20plan." target="_blank" rel="noopener">ENQUIRE NOW</a>
+    </article>
+    <article class="card membership">
+      <h3>STANDARD</h3>
+      <div class="price">Progress</div>
+      <p>For people aiming to train consistently.</p>
+      <p>• Workout planning information<br>• Progress guidance<br>• General nutrition tips</p>
+      <a class="btn" href="https://wa.me/919532356538?text=Hello%2C%20please%20tell%20me%20about%20the%20Standard%20plan." target="_blank" rel="noopener">ENQUIRE NOW</a>
+    </article>
+    <article class="card membership">
+      <h3>PREMIUM</h3>
+      <div class="price">Advanced</div>
+      <p>For people seeking more detailed guidance.</p>
+      <p>• Goal-based guidance<br>• Workout and recovery tips<br>• Nutrition habit guidance</p>
+      <a class="btn" href="https://wa.me/919532356538?text=Hello%2C%20please%20tell%20me%20about%20the%20Premium%20plan." target="_blank" rel="noopener">ENQUIRE NOW</a>
+    </article>
+  </div>
+  <p class="note" style="text-align:center">Plans shown are website options, not confirmed services or prices. Contact us for actual availability and charges.</p>
 </section>
 
 <section id="diet">
-  <h2>Fitness <span class="red">Diet</span></h2>
-  <div class="cards">
-    <div class="card">
-      <div class="emoji">🥛</div>
-      <h3>Protein</h3>
-      <p>Milk, curd, paneer, dal and other protein-rich foods.</p>
-    </div>
-    <div class="card">
-      <div class="emoji">🍌</div>
-      <h3>Energy</h3>
-      <p>Bananas, oats, rice and other energy-giving foods.</p>
-    </div>
-    <div class="card">
-      <div class="emoji">💧</div>
-      <h3>Hydration</h3>
-      <p>Drink enough water and get proper sleep.</p>
+  <div class="section-head">
+    <h2>DIET & <span class="red">NUTRITION</span></h2>
+    <p>Simple habits that can support your fitness goals.</p>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <div class="card-body">
+        <h3>💪 Muscle Building</h3>
+        <p>Eat sufficient calories and protein. Include dal, beans, milk, curd, soy, paneer or other suitable protein foods.</p>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-body">
+        <h3>🔥 Weight Management</h3>
+        <p>Build balanced meals with vegetables, protein and high-fibre foods. Aim for sustainable habits rather than crash diets.</p>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-body">
+        <h3>💧 Hydration & Recovery</h3>
+        <p>Drink water regularly, sleep enough and allow your muscles time to recover between hard sessions.</p>
+      </div>
+    </article>
+  </div>
+  <p class="note">Nutrition information is general education, not personalised medical advice.</p>
+</section>
+
+<section class="dark-section" id="tips">
+  <div class="section-head">
+    <h2>FITNESS <span class="red">TIPS</span></h2>
+    <p>Small steps. Consistent effort. Long-term progress.</p>
+  </div>
+  <div class="feature-grid">
+    <div class="feature"><h3>01. Stay Consistent</h3><p>Follow a realistic routine you can maintain.</p></div>
+    <div class="feature"><h3>02. Learn Technique</h3><p>Prioritise correct form over lifting heavier weights.</p></div>
+    <div class="feature"><h3>03. Recover Well</h3><p>Rest, sleep and nutrition are part of training.</p></div>
+    <div class="feature"><h3>04. Track Progress</h3><p>Record your workouts and notice gradual improvements.</p></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-head">
+    <h2>ABOUT <span class="red">VARUN FITNESS</span></h2>
+  </div>
+  <div style="max-width:800px;margin:auto;text-align:center">
+    <p>Varun Fitness is built around the idea of improving strength, fitness and everyday habits. Explore the workout information, learn about nutrition and contact us to ask about available services.</p>
+    <div class="feature-grid">
+      <div class="feature"><h3>💪 Strength</h3><p>Work towards your personal goals.</p></div>
+      <div class="feature"><h3>🎯 Discipline</h3><p>Make consistency part of your routine.</p></div>
+      <div class="feature"><h3>🏆 Progress</h3><p>Celebrate steady improvement.</p></div>
     </div>
   </div>
 </section>
 
-<section class="contact" id="contact">
-  <h2>Let's Get <span class="red">Stronger!</span></h2>
-  <p class="info">I'm Varun Shukla. Contact me for fitness information, workout guidance and membership details.</p>
-  <p><b>Varun Shukla</b></p>
-  <a class="btn whatsapp" href="https://wa.me/919532356538?text=Hello%20Varun%20Shukla%2C%20mujhe%20fitness%20ke%20baare%20mein%20baat%20karni%20hai" target="_blank">💬 WhatsApp Me</a>
-  <br>
-  <a class="btn phonepe" href="upi://pay?pa=Shuklavarunji99@okaxis&amp;pn=Varun%20Shukla&amp;cu=INR">₹ Pay with UPI / PhonePe</a>
-  <p class="info">UPI ID: Shuklavarunji99@okaxis</p>
-  <p class="info">Payment karne se pehle app mein receiver ka naam aur amount verify karein.</p>
+<section class="dark-section" id="contact">
+  <div class="section-head">
+    <h2>LET'S <span class="red">CONNECT</span></h2>
+    <p>Questions about workouts or membership? Send us a message.</p>
+    <a class="btn" href="https://wa.me/919532356538?text=Hello%20Varun%20Fitness%2C%20I%20want%20more%20information." target="_blank" rel="noopener">CHAT ON WHATSAPP</a>
+    <a class="btn outline" href="upi://pay?pa=Shuklavarunji99%40okaxis&amp;pn=Varun%20Fitness&amp;cu=INR">PAY USING UPI</a>
+    <p class="note">UPI payment opens a compatible payment app if available. Check the recipient and amount before approving any payment.</p>
+  </div>
+  <div style="text-align:center">
+    <h3>Contact Number</h3>
+    <p>9532356538</p>
+    <h3 style="margin-top:15px">UPI ID</h3>
+    <p>Shuklavarunji99@okaxis</p>
+  </div>
 </section>
+</main>
 
 <footer>
-  © 2026 Varun Fitness | Stay Strong. Stay Consistent.
+  <div class="logo">VARUN <span>FITNESS</span></div>
+  <p>Build Your Best Self.</p>
+  <p>© 2026 Varun Fitness</p>
+  <p class="note"><a href="#home">Back to top ↑</a></p>
 </footer>
 
 </body>
 </html>
 
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Varun Fitness | Transform Yourself</title>
-<style>
-*{box-sizing:border-box;scroll-behavior:smooth}
-body{margin:0;font-family:Arial,sans-serif;background:#101010;color:white}
-header{background:#181818;padding:18px 14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-.logo{font-size:22px;font-weight:bold;color:#ff3939}
-nav a{color:white;text-decoration:none;margin:5px;font-size:13px}
-.hero{text-align:center;padding:65px 18px;background:linear-gradient(145deg,#310909,#111 65%)}
-.hero h1{font-size:39px;margin:10px 0}
-.red{color:#ff3939}
-.hero p{color:#ddd;line-height:1.7}
-.btn{display:inline-block;text-decoration:none;padding:13px 18px;border-radius:8px;font-weight:bold;margin:6px;border:none;font-size:15px}
-.whatsapp{background:#25d366;color:#071b0d}
-.phonepe{background:#6739a6;color:white}
-.outline{border:1px solid #ff3939;color:white}
-section{padding:35px 16px;text-align:center}
-section h2{font-size:27px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px;max-width:850px;margin:20px auto}
-.card{background:#1d1d1d;border:1px solid #333;border-radius:12px;padding:20px 12px}
-.card .emoji{font-size:35px}
-.card p{color:#ccc;line-height:1.6;font-size:14px}
-.card h3{color:#ff4949}
-.info{max-width:650px;margin:auto;color:#ddd;line-height:1.9}
-.contact{background:#1a1a1a}
-footer{padding:22px;text-align:center;background:#080808;color:#aaa;font-size:13px}
-</style>
-</head>
-<body>
-
-<header>
-  <div class="logo">VARUN FITNESS</div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#workout">Workout</a>
-    <a href="#diet">Diet</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<div class="hero" id="home">
-  <p class="red"><b>YOUR FITNESS JOURNEY STARTS HERE</b></p>
-  <h1>BUILD YOUR<br><span class="red">BEST SELF</span></h1>
-  <p>Build strength. Improve fitness.<br>Become the best version of yourself!</p>
-  <a class="btn whatsapp" href="https://wa.me/919532356538?text=Hello%20Varun%20bhai%2C%20mujhe%20fitness%20ke%20baare%20mein%20jaankari%20chahiye" target="_blank">Join on WhatsApp</a>
-  <a class="btn outline" href="#workout">Explore Fitness ↓</a>
-</div>
-
-<section id="workout">
-  <h2>Our <span class="red">Workouts</span></h2>
-  <p>Choose your fitness goal</p>
-  <div class="cards">
-    <div class="card">
-      <div class="emoji">🏋️</div>
-      <h3>Muscle Building</h3>
-      <p>Strength training and muscle-building basics.</p>
-    </div>
-    <div class="card">
-      <div class="emoji">🔥</div>
-      <h3>Fat Loss</h3>
-      <p>Cardio, strength training and healthy habits.</p>
-    </div>
-    <div class="card">
-      <div class="emoji">💪</div>
-      <h3>Strength</h3>
-      <p>Improve strength and workout consistency.</p>
-    </div>
-  </div>
-</section>
-
-<section id="diet">
-  <h2>Fitness <span class="red">Diet</span></h2>
-  <div class="cards">
-    <div class="card">
-      <div class="emoji">🥛</div>
-      <h3>Protein</h3>
-      <p>Milk, curd, paneer, dal and other protein-rich foods.</p>
-    </div>
-    <div class="card">
-      <div class="emoji">🍌</div>
-      <h3>Energy</h3>
-      <p>Bananas, oats, rice and other energy-giving foods.</p>
-    </div>
-    <div class="card">
-      <div class="emoji">💧</div>
-      <h3>Hydration</h3>
-      <p>Drink enough water and get proper sleep.</p>
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <h2>Let's Get <span class="red">Stronger!</span></h2>
-  <p class="info">I'm Varun Shukla. Contact me for fitness information, workout guidance and membership details.</p>
-  <p><b>Varun Shukla</b></p>
-  <a class="btn whatsapp" href="https://wa.me/919532356538?text=Hello%20Varun%20Shukla%2C%20mujhe%20fitness%20ke%20baare%20mein%20baat%20karni%20hai" target="_blank">💬 WhatsApp Me</a>
-  <br>
-  <a class="btn phonepe" href="upi://pay?pa=Shuklavarunji99@okaxis&amp;pn=Varun%20Shukla&amp;cu=INR">₹ Pay with UPI / PhonePe</a>
-  <p class="info">UPI ID: Shuklavarunji99@okaxis</p>
-  <p class="info">Payment karne se pehle app mein receiver ka naam aur amount verify karein.</p>
-</section>
-
-<footer>
-  © 2026 Varun Fitness | Stay Strong. Stay Consistent.
-</footer>
-
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Varun Fitness | Transform Yourself</title>
-<style>
-*{box-sizing:border-box;scroll-behavior:smooth}
-body{margin:0;font-family:Arial,sans-serif;background:#101010;color:white}
-header{background:#181818;padding:18px 14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-.logo{font-size:22px;font-weight:bold;color:#ff3939}
-nav a{color:white;text-decoration:none;margin:5px;font-size:13px}
-.hero{text-align:center;padding:65px 18px;background:linear-gradient(145deg,#310909,#111 65%)}
-.hero h1{font-size:39px;margin:10px 0}
-.red{color:#ff3939}
-.hero p{color:#ddd;line-height:1.7}
-.btn{display:inline-block;text-decoration:none;padding:13px 18px;border-radius:8px;font-weight:bold;margin:6px;border:none;font-size:15px}
-.whatsapp{background:#25d366;color:#071b0d}
-.phonepe{background:#6739a6;color:white}
-.outline{border:1px solid #ff3939;color:white}
-section{padding:35px 16px;text-align:center}
-section h2{font-size:27px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px;max-width:850px;margin:20px auto}
-.card{background:#1d1d1d;border:1px solid #333;border-radius:12px;padding:20px 12px}
-.card .emoji{font-size:35px}
-.card p{color:#ccc;line-height:1.6;font-size:14px}
-.card h3{color:#ff4949}
-.info{max-width:650px;margin:auto;color:#ddd;line-height:1.9}
-.contact{background:#1a1a1a}
-footer{padding:22px;text-align:center;background:#080808;color:#aaa;font-size:13px}
-</style>
-</head>
-<body>
-
-<header>
-  <div class="logo">VARUN FITNESS</div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#workout">Workout</a>
-    <a href="#diet">Diet</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<div class="hero" id="home">
-  <p class="red"><b>YOUR FITNESS JOURNEY STARTS HERE</b></p>
-  <h1>BUILD YOUR<br><span class="red">BEST SELF</span></h1>
-  <p>Build strength. Improve fitness.<br>Become the best version of yourself!</p>
-  <a class="btn whatsapp" href="https://wa.me/919532356538?text=Hello%20Varun%20bhai%2C%20mujhe%20fitness%20ke%20baare%20mein%20jaankari%20chahiye" target="_blank">Join on WhatsApp</a>
-  <a class="btn outline" href="#workout">Explore Fitness ↓</a>
-</div>
-
-<section id="workout">
-  <h2>Our <span class="red">Workouts</span></h2>
-  <p>Choose your fitness goal</p>
-  <div class="cards">
-    <div class="card">
-      <div class="emoji">🏋️</div>
-      <h3>Muscle Building</h3>
-      <p>Strength training and muscle-building basics.</p>
-    </div>
-    <div class="card">
-      <div class="emoji">🔥</div>
-      <h3>Fat Loss</h3>
-      <p>Cardio, strength training and healthy habits.</p>
-    </div>
-    <div class="card">
-      <div class="emoji">💪</div>
-      <h3>Strength</h3>
-      <p>Improve strength and workout consistency.</p>
-    </div>
-  </div>
-</section>
-
-<section id="diet">
-  <h2>Fitness <span class="red">Diet</span></h2>
-  <div class="cards">
-    <div class="card">
-      <div class="emoji">🥛</div>
-      <h3>Protein</h3>
-      <p>Milk, curd, paneer, dal and other protein-rich foods.</p>
-    </div>
-    <div class="card">
-      <div class="emoji">🍌</div>
-      <h3>Energy</h3>
-      <p>Bananas, oats, rice and other energy-giving foods.</p>
-    </div>
-    <div class="card">
-      <div class="emoji">💧</div>
-      <h3>Hydration</h3>
-      <p>Drink enough water and get proper sleep.</p>
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <h2>Let's Get <span class="red">Stronger!</span></h2>
-  <p class="info">I'm Varun Shukla. Contact me for fitness information, workout guidance and membership details.</p>
-  <p><b>Varun Shukla</b></p>
-  <a class="btn whatsapp" href="https://wa.me/919532356538?text=Hello%20Varun%20Shukla%2C%20mujhe%20fitness%20ke%20baare%20mein%20baat%20karni%20hai" target="_blank">💬 WhatsApp Me</a>
-  <br>
-  <a class="btn phonepe" href="upi://pay?pa=Shuklavarunji99@okaxis&amp;pn=Varun%20Shukla&amp;cu=INR">₹ Pay with UPI / PhonePe</a>
-  <p class="info">UPI ID: Shuklavarunji99@okaxis</p>
-  <p class="info">Payment karne se pehle app mein receiver ka naam aur amount verify karein.</p>
-</section>
-
-<footer>
-  © 2026 Varun Fitness | Stay Strong. Stay Consistent.
-</footer>
-
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Varun Fitness | Transform Yourself</title>
-<style>
-*{box-sizing:border-box;scroll-behavior:smooth}
-body{margin:0;font-family:Arial,sans-serif;background:#101010;color:white}
-header{background:#181818;padding:18px 14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-.logo{font-size:22px;font-weight:bold;color:#ff3939}
-nav a{color:white;text-decoration:none;margin:5px;font-size:13px}
-.hero{text-align:center;padding:65px 18px;background:linear-gradient(145deg,#310909,#111 65%)}
-.hero h1{font-size:39px;margin:10px 0}
-.red{color:#ff3939}
-.hero p{color:#ddd;line-height:1.7}
-.btn{display:inline-block;text-decoration:none;padding:13px 18px;border-radius:8px;font-weight:bold;margin:6px;border:none;font-size:15px}
-.whatsapp{background:#25d366;color:#071b0d}
-.phonepe{background:#6739a6;color:white}
-.outline{border:1px solid #ff3939;color:white}
-section{padding:35px 16px;text-align:center}
-section h2{font-size:27px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px;max-width:850px;margin:20px auto}
-.card{background:#1d1d1d;border:1px solid #333;border-radius:12px;padding:20px 12px}
-.card .emoji{font-size:35px}
-.card p{color:#ccc;line-height:1.6;font-size:14px}
-.card h3{color:#ff4949}
-.info{max-width:650px;margin:auto;color:#ddd;line-height:1.9}
-.contact{background:#1a1a1a}
-footer{padding:22px;text-align:center;background:#080808;color:#aaa;font-size:13px}
-</style>
-</head>
-<body>
-
-<header>
-  <div class="logo">VARUN FITNESS</div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#workout">Workout</a>
-    <a href="#diet">Diet</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<div class="hero" id="home">
-  <p class="red"><b>YOUR FITNESS JOURNEY STARTS HERE</b></p>
-  <h1>BUILD YOUR<br><span class="red">BEST SELF</span></h1>
-  <p>Build strength. Improve fitness.<br>Become the best version of yourself!</p>
-  <a class="btn whatsapp" href="https://wa.me/919532356538?text=Hello%20Varun%20bhai%2C%20mujhe%20fitness%20ke%20baare%20mein%20jaankari%20chahiye" target="_blank">Join on WhatsApp</a>
-  <a class="btn outline" href="#workout">Explore Fitness ↓</a>
-</div>
-
-<section id="workout">
-  <h2>Our <span class="red">Workouts</span></h2>
-  <p>Choose your fitness goal</p>
-  <div class="cards">
-      <div class="emoji">🏋️</div>
-      <h3>Muscle Building</h3>
-      <p>Strength training and muscle-building basics.</p>
-    </div>
-    <div class="card">
-      <div class="emoji">🔥</div>
-      <h3>Fat Loss</h3>
-      <p>Cardio, strength training and healthy habits.</p>
-    </div>
-    <div class="card">
-      <div class="emoji">💪</div>
-      <h3>Strength</h3>
-      <p>Improve strength and workout consistency.</p>
-    </div>
-  </div>
-</section>
-
-<section id="diet">
-  <h2>Fitness <span class="red">Diet</span></h2>
-  <div class="cards">
-    <div class="card">
-      <div class="emoji">🥛</div>
-      <h3>Protein</h3>
-      <p>Milk, curd, paneer, dal and other protein-rich foods.</p>
-    </div>
-    <div class="card">
-      <div class="emoji">🍌</div>
-      <h3>Energy</h3>
-      <p>Bananas, oats, rice and other energy-giving foods.</p>
-    </div>
-    <div class="card">
-      <div class="emoji">💧</div>
-      <h3>Hydration</h3>
-      <p>Drink enough water and get proper sleep.</p>
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <h2>Let's Get <span class="red">Stronger!</span></h2>
-  <p class="info">I'm Varun Shukla. Contact me for fitness information, workout guidance and membership details.</p>
-  <p><b>Varun Shukla</b></p>
-  <a class="btn whatsapp" href="https://wa.me/919532356538?text=Hello%20Varun%20Shukla%2C%20mujhe%20fitness%20ke%20baare%20mein%20baat%20karni%20hai" target="_blank">💬 WhatsApp Me</a>
-  <br>
-  <a class="btn phonepe" href="upi://pay?pa=Shuklavarunji99@okaxis&amp;pn=Varun%20Shukla&amp;cu=INR">₹ Pay with UPI / PhonePe</a>
-  <p class="info">UPI ID: Shuklavarunji99@okaxis</p>
-  <p class="info">Payment karne se pehle app mein receiver ka naam aur amount verify karein.</p>
-</section>
-
-<footer>
-  © 2026 Varun Fitness | Stay Strong. Stay Consistent.
-</footer>
-
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Varun Fitness | Transform Yourself</title>
-<style>
-*{box-sizing:border-box;scroll-behavior:smooth}
-body{margin:0;font-family:Arial,sans-serif;background:#101010;color:white}
-header{background:#181818;padding:18px 14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-.logo{font-size:22px;font-weight:bold;color:#ff3939}
-nav a{color:white;text-decoration:none;margin:5px;font-size:13px}
-.hero{text-align:center;padding:65px 18px;background:linear-gradient(145deg,#310909,#111 65%)}
-.hero h1{font-size:39px;margin:10px 0}
-.red{color:#ff3939}
-.hero p{color:#ddd;line-height:1.7}
-.btn{display:inline-block;text-decoration:none;padding:13px 18px;border-radius:8px;font-weight:bold;margin:6px;border:none;font-size:15px}
-.whatsapp{background:#25d366;color:#071b0d}
-.phonepe{background:#6739a6;color:white}
-.outline{border:1px solid #ff3939;color:white}
-section{padding:35px 16px;text-align:center}
-section h2{font-size:27px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px;max-width:850px;margin:20px auto}
-.card{background:#1d1d1d;border:1px solid #333;border-radius:12px;padding:20px 12px}
-.card .emoji{font-size:35px}
-.card p{color:#ccc;line-height:1.6;font-size:14px}
-.card h3{color:#ff4949}
-.info{max-width:650px;margin:auto;color:#ddd;line-height:1.9}
-.contact{background:#1a1a1a}
-footer{padding:22px;text-align:center;background:#080808;color:#aaa;font-size:13px}
-</style>
-</head>
-<body>
-
-<header>
-  <div class="logo">VARUN FITNESS</div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#workout">Workout</a>
-    <a href="#diet">Diet</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<div class="hero" id="home">
-  <p class="red"><b>YOUR FITNESS JOURNEY STARTS HERE</b></p>
-  <h1>BUILD YOUR<br><span class="red">BEST SELF</span></h1>
-  <p>Build strength. Improve fitness.<br>Become the best version of yourself!</p>
-  <a class="btn whatsapp" href="https://wa.me/919532356538?text=Hello%20Varun%20bhai%2C%20mujhe%20fitness%20ke%20baare%20mein%20jaankari%20chahiye" target="_blank">Join on WhatsApp</a>
-  <a class="btn outline" href="#workout">Explore Fitness ↓</a>
-</div>
-
-<section id="workout">
-  <h2>Our <span class="red">Workouts</span></h2>
-  <p>Choose your fitness goal</p>
-  <div class="cards">
-    <div class="card">
-      <div class="emoji">🏋️</div>
-      <h3>Muscle Building</h3>
-      <p>Strength training and muscle-building basics.</p>
-    </div>
-    <div class="card">
-      <div class="emoji">🔥</div>
-      <h3>Fat Loss</h3>
-      <p>Cardio, strength training and healthy habits.</p>
-    </div>
-    <div class="card">
-      <div class="emoji">💪</div>
-      <h3>Strength</h3>
-      <p>Improve strength and workout consistency.</p>
-    </div>
-  </div>
-</section>
-
-<section id="diet">
-  <h2>Fitness <span class="red">Diet</span></h2>
-  <div class="cards">
-    <div class="card">
-      <div class="emoji">🥛</div>
-      <h3>Protein</h3>
-      <p>Milk, curd, paneer, dal and other protein-rich foods.</p>
-    </div>
-    <div class="card">
-      <div class="emoji">🍌</div>
-      <h3>Energy</h3>
-      <p>Bananas, oats, rice and other energy-giving foods.</p>
-    </div>
-    <div class="card">
-      <div class="emoji">💧</div>
-      <h3>Hydration</h3>
-      <p>Drink enough water and get proper sleep.</p>
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <h2>Let's Get <span class="red">Stronger!</span></h2>
-  <p class="info">I'm Varun Shukla. Contact me for fitness information, workout guidance and membership details.</p>
-  <p><b>Varun Shukla</b></p>
-  <a class="btn whatsapp" href="https://wa.me/919532356538?text=Hello%20Varun%20Shukla%2C%20mujhe%20fitness%20ke%20baare%20mein%20baat%20karni%20hai" target="_blank">💬 WhatsApp Me</a>
-  <br>
-  <a class="btn phonepe" href="upi://pay?pa=Shuklavarunji99@okaxis&amp;pn=Varun%20Shukla&amp;cu=INR">₹ Pay with UPI / PhonePe</a>
-  <p class="info">UPI ID: Shuklavarunji99@okaxis</p>
-  <p class="info">Payment karne se pehle app mein receiver ka naam aur amount verify karein.</p>
-</section>
-
-<footer>
-  © 2026 Varun Fitness | Stay Strong. Stay Consistent.
-</footer>
-
-</body>
-</html>
